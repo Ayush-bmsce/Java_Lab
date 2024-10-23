@@ -1,0 +1,48 @@
+Ayush Aditya
+1BM23CS057
+
+
+import java.util.Scanner;
+
+class Books {
+    String name;
+    String author;
+    int price;
+    int numPages;
+
+    Books(String name, String author, int price, int numPages) {
+        this.name = name;
+        this.author = author;
+        this.price = price;
+        this.numPages = numPages;
+    }
+
+    public String toString() {
+        String nameStr = "Book name: " + this.name + "\n";
+        String authorStr = "Author name: " + this.author + "\n";
+        String priceStr = "Price: " + this.price + "\n";
+        String numPagesStr = "Number of pages: " + this.numPages + "\n";
+        return nameStr + authorStr + priceStr + numPagesStr;
+    }
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        s.nextLine(); // Consume the newline after the integer input
+        Books[] b = new Books[n];
+
+        for (int i = 0; i < n; i++) {
+            String name = s.nextLine();
+            String author = s.nextLine();
+            int price = s.nextInt();
+            int numPages = s.nextInt();
+            s.nextLine(); // Consume the newline after the integer input
+
+            b[i] = new Books(name, author, price, numPages);
+            String result = b[i].toString();
+            System.out.println(result);
+        }
+
+        s.close(); // Close the scanner
+    }
+}
