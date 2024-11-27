@@ -1,0 +1,38 @@
+Ayush Aditya
+1BM23CS057
+
+public class MultiThreadExample {
+    static class DisplayBMS implements Runnable {
+        @Override
+        public void run() {
+            while (true) {
+                System.out.println("BMS College of Engineering");
+                try {
+                    Thread.sleep(10000);  // Sleep for 10 seconds
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();  // Handle thread interruption
+                }
+            }
+        }
+    }
+    static class DisplayCSE implements Runnable {
+        @Override
+        public void run() {
+            while (true) {
+                System.out.println("CSE");
+                try {
+                    Thread.sleep(2000);  // Sleep for 2 seconds
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();  // Handle thread interruption
+                }
+            }
+        }
+    }
+    public static void main(String[] args) {
+        // Create two thread objects for each task
+        Thread thread1 = new Thread(new DisplayBMS());
+        Thread thread2 = new Thread(new DisplayCSE());
+        thread1.start();
+        thread2.start();
+    }
+}
